@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+
+        #info {
+            display: block;
+            margin-top: 15px;
+            color: #444;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .form-container {
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+    <script defer>
+        function insert() {
+            const name = document.getElementById("name").value;
+            const age = document.getElementById("age").value;
+            const country = document.getElementById("country").value;
+            const id = document.getElementById("id").value;
+
+            const info = `Name: ${name}, Age: ${age}, Country: ${country}, ID: ${id}`;
+            document.getElementById("info").textContent = info;
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Welcome to JavaScript</h2>
+
+    <div class="form-container">
+        <input type="text" id="name" placeholder="Enter Name">
+        <input type="text" id="age" placeholder="Enter Age">
+        <input type="text" id="country" placeholder="Enter Country">
+        <input type="text" id="id" placeholder="Enter ID">
+        <button onclick="insert()">Insert Info</button>
+
+        <p><strong>Info:</strong> <span id="info"></span></p>
+    </div>
+
+</body>
+</html>

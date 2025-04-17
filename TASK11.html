@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sum Calculator</title>
+</head>
+<body>
+    <h2>Sum Calculator</h2>
+    <label for="input_a">Enter A:</label>
+    <input id="input_a" type="number" placeholder="Enter A" />
+    <br><br>
+    <label for="input_b">Enter B:</label>
+    <input id="input_b" type="number" placeholder="Enter B" />
+    <br><br>
+    <button onclick="calculate();">Calculate</button>
+
+    <div id="content_div" style="margin-top: 15px; font-weight: bold;"></div>
+
+    <script>
+        function calculate() {
+            let a = parseInt(document.getElementById("input_a").value);
+            let b = parseInt(document.getElementById("input_b").value);
+            
+            if (isNaN(a) || isNaN(b)) {
+                document.getElementById("content_div").innerHTML = "Please enter valid numbers.";
+                return;
+            }
+
+            if (a > b) {
+                [a, b] = [b, a]; // Swap if A > B
+            }
+
+            let total = 0;
+            for (let i = a; i <= b; i++) {
+                total += i;
+            }
+
+            document.getElementById("content_div").innerHTML = `Sum from ${a} to ${b} is: ${total}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Call Stack</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background-color: #fdfdfd;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 1rem;
+    }
+    #processLine {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <h2>Call Stack Simulation</h2>
+  <input type="text" id="taskInput" placeholder="Enter Task Name">
+  <div>
+    <button onclick="addTask()">Add Task</button>
+    <button onclick="undoTask()">Undo Task</button>
+  </div>
+  <h3>Process Line:</h3>
+  <p id="processLine">(Empty)</p>
+
+  <script>
+    let callStack = [];
+
+    function addTask() {
+      const input = document.getElementById("taskInput").value.trim();
+      if (input) {
+        callStack.push(input);
+        displayStack();
+        document.getElementById("taskInput").value = "";
+      } else {
+        alert("Enter a task name!");
+      }
+    }
+
+    function undoTask() {
+      if (callStack.length > 0) {
+        callStack.pop();
+        displayStack();
+      } else {
+        alert("No tasks to undo!");
+      }
+    }
+
+    function displayStack() {
+      const output = document.getElementById("processLine");
+      output.textContent = callStack.length > 0 ? callStack.join(" → ") : "(Empty)";
+    }
+  </script>
+</body>
+</html>
